@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<title>DQbuttleSimulator</title>
+	<link rel="stylesheet" href="stylesheet.css">
+</head>
+
+<body>
+　<div id="app">
+
+
+
+		<div>
+      {{ monsterteam[0] }}
+    </div>
+    <div>
+      {{ monsterteam[1] }}
+    </div>
+
+		<select v-model="selected1">
+			<option v-for="i in monsterdata.monsters.length" :key="i">
+				{{ monsterdata.monsters[i-1].name }}
+			</option>
+    </select>
+
+		<select v-model="selected2">
+			<option v-for="i in monsterdata.monsters.length" :key="i">
+				{{ monsterdata.monsters[i-1].name }}
+			</option>
+    </select>
+
+    <div>
+      <button type="button"  @click="addmonster(0,selected1)">追加1</button>
+      <button type="button"  @click="addmonster(1,selected2)">追加2</button>
+    </div>
+    <div>
+      <button type="button"  @click="resetmonsterteam">リセット</button>
+
+    </div>
+
+    <div>
+      <button type="button"  @click="manybattle(1)">戦闘開始</button>
+    </div>
+		<div>
+      <button type="button"  @click="manybattle(100)">100戦開始</button>
+    </div>
+		<div>
+      <button type="button"  @click="manybattle(1000)">1000戦開始</button>
+    </div>
+
+    <div>
+      {{ messages }}
+    </div>
+
+		<div>
+      {{ win[0] }}
+    </div>
+    <div>
+      {{ win[1] }}
+    </div>
+
+	</div>
+
+	<script src="https://unpkg.com/vue@next"></script>
+  <script type="text/javascript" src="monsterdata.js"></script>
+  <script type="text/javascript" src="actiondata.js"></script>
+	<script type="text/javascript" src="game.js"></script>
+</body>
+</html>
